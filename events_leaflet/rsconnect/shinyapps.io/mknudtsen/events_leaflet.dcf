@@ -1,0 +1,10 @@
+name: events_leaflet
+account: mknudtsen
+server: shinyapps.io
+appId: 96310
+bundleId: 447085
+url: https://mknudtsen.shinyapps.io/events_leaflet/
+when: 1462908155.1406
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: data.R|nodata.js|data/queries/all_events.sql|data/queries/genre_top.sql|data/queries/neighbor_master.sql|data/queries/term_top.sql|data/queries/venues_coord.sql|data/shapefiles/oakland/geo_export_9e48ecdc-29b0-47d7-b740-ba5ef0d08fe2.dbf|data/shapefiles/oakland/geo_export_9e48ecdc-29b0-47d7-b740-ba5ef0d08fe2.prj|data/shapefiles/oakland/geo_export_9e48ecdc-29b0-47d7-b740-ba5ef0d08fe2.shp|data/shapefiles/oakland/geo_export_9e48ecdc-29b0-47d7-b740-ba5ef0d08fe2.shx|data/shapefiles/oakland/geo_export_c13b13fa-ba02-4e60-93a7-769c3151f092.dbf|data/shapefiles/oakland/geo_export_c13b13fa-ba02-4e60-93a7-769c3151f092.prj|data/shapefiles/oakland/geo_export_c13b13fa-ba02-4e60-93a7-769c3151f092.shp|data/shapefiles/oakland/geo_export_c13b13fa-ba02-4e60-93a7-769c3151f092.shx|data/shapefiles/sf_analysis/geo_export_ab474caf-43cf-4b23-b57a-d3312b48d848.dbf|data/shapefiles/sf_analysis/geo_export_ab474caf-43cf-4b23-b57a-d3312b48d848.prj|data/shapefiles/sf_analysis/geo_export_ab474caf-43cf-4b23-b57a-d3312b48d848.shp|data/shapefiles/sf_analysis/geo_export_ab474caf-43cf-4b23-b57a-d3312b48d848.shx|data/shapefiles/sf_neighborhoods/geo_export_6f0779db-f6c3-4307-beba-ef2f9265b77f.dbf|data/shapefiles/sf_neighborhoods/geo_export_6f0779db-f6c3-4307-beba-ef2f9265b77f.prj|data/shapefiles/sf_neighborhoods/geo_export_6f0779db-f6c3-4307-beba-ef2f9265b77f.shp|data/shapefiles/sf_neighborhoods/geo_export_6f0779db-f6c3-4307-beba-ef2f9265b77f.shx|data/shapefiles/sf_planning/planning_neighborhoods.dbf|data/shapefiles/sf_planning/planning_neighborhoods.prj|data/shapefiles/sf_planning/planning_neighborhoods.sbn|data/shapefiles/sf_planning/planning_neighborhoods.sbx|data/shapefiles/sf_planning/planning_neighborhoods.shp|data/shapefiles/sf_planning/planning_neighborhoods.shp.xml|data/shapefiles/sf_planning/planning_neighborhoods.shx

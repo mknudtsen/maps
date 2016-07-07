@@ -1,0 +1,3 @@
+load("/Users/mark/Development/maps/events_leaflet/data/master.rds")
+load("/Users/mark/Development/maps/events_leaflet/data/all_events.rds")
+load("/Users/mark/Development/maps/events_leaflet/data/master.rds")

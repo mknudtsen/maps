@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(dplyr)\nsource(\"data.R\")\n\n\n# read in rds data (queried from postgres and then saved)\nall_events <- readRDS(\"data/all_events.rds\")\nsfspatial <- readRDS(\"data/master.rds\")\nvenues <- readRDS(\"data/venues.rds\")\n\n# clean and transform variables for all_events\nall_events$date <- as.Date(all_events$date, \"%Y-%m-%d\")\n\nvenues$venue <- ifelse(venues$venue == 'Bill Graham Civic Auditorium', \"Bill Graham\", venues$venue)\nvenues$venue <- ifelse(venues$venue == 'Great American Music Hall', \"Great American\", venues$venue)\nvenues$venue <- ifelse(venues$venue == 'Safehouse for the Performing Arts', \"Safehouse\", venues$venue)\nvenues$venue <- ifelse(venues$venue == 'California Academy of Sciences', \"Academy of Sciences\", venues$venue)\nvenues$venue <- ifelse(venues$venue == 'Brick & Mortar Music Hall', \"Brick & Mortar\", venues$venue)\nvenues$venue <- ifelse(venues$venue == 'Gray Area Art & Technology Theater', \"Gray Area\", venues$venue)\n\nall_events$venue <- ifelse(all_events$venue == 'Bill Graham Civic Auditorium', \"Bill Graham\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'Great American Music Hall', \"Great American\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'Safehouse for the Performing Arts', \"Safehouse\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'California Academy of Sciences', \"Academy of Sciences\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'Brick & Mortar Music Hall', \"Brick & Mortar\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'Gray Area Art & Technology Theater', \"Gray Area\", all_events$venue)\nall_events$venue <- ifelse(all_events$venue == 'Miner Auditorium, SFJAZZ Center', \"Miner Auditorium\", all_events$venue)\n\nall_events$city <- as.factor(all_events$city)\nall_events$zip_code <- as.integer(all_events$zip_code)\nall_events$neighborhood <- as.factor(all_events$neighborhood)\nall_events$familiarity <- as.numeric(all_events$familiarity)\nall_events$hotttnesss <- as.numeric(all_events$hotttnesss)\nall_events$discovery <- as.numeric(all_events$discovery)\nall_events$genre <- ifelse(is.na(all_events$genre1), all_events$genre2, all_events$genre1)\nall_events$term <- ifelse(is.na(all_events$term1), all_events$term2, all_events$term1)\nall_events <- tbl_df(all_events)\n\n",
+    "created" : 1463756769629.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2640669109",
+    "id" : "7372B6D0",
+    "lastKnownWriteTime" : 1463756947,
+    "last_content_update" : 1463756947688,
+    "path" : "~/Development/maps/events_leaflet/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

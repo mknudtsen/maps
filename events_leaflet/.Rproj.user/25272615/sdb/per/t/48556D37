@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(shiny)\nlibrary(leaflet)\nlibrary(highcharter)\n\n\nshinyUI(navbarPage(\"Live Events in San Francisco\", id = \"nav\",\n                   \n  tabPanel(\"Interactive Map\",\n    div(class = \"outer\",\n        \n        tags$head(\n         # include custom css\n          includeCSS(\"styles.css\"),\n          #includeScript(\"gomap.js\")\n          tags$script(src=\"nodata.js\")\n        ),\n        \n        leafletOutput(\"map\", width = \"100%\", height = \"100%\"),\n        \n        absolutePanel(id = \"details\", class = \"panel panel-default\", fixed = TRUE,\n          draggable = FALSE, top = 60, left = \"auto\", right = 20, bottom = \"auto\",\n          width = 360, height = \"auto\",\n          \n          uiOutput(\"context\"),\n          hr(),\n          h6(\"Top Upcoming\"),\n          div(tableOutput(\"upcoming\"), class=\"mytable\"),\n          h6(\"Most Popular\"), \n          div(tableOutput(\"popular\"), class=\"mytable\"),\n          highchartOutput(\"chart\", width = \"100%\", height = \"220px\")\n\n          \n        ),\n        \n        tags$div(id = \"cite\",\n          'Data from Songkick and Echonest.'\n        )\n    )\n  ),\n  \n  tabPanel(\"Data Explorer\",\n    fluidRow(\n      # column(3,\n      #   selectInput(\"neighborhoods\", \"Neighborhoods\", c(\"All\" = \"\"), multiple = TRUE)\n      # ),\n      # column(3,\n      #   conditionalPanel(\"input.neighborhoods\",\n      #     selectInput(\"venues\", \"Venues\", c(\"All\" = \"\"), multiple = TRUE)\n      #   )\n      # )\n    ),\n\n    fluidRow(\n    ),\n\n    hr(),\n    DT::dataTableOutput(\"event_table\")\n  )\n\n))\n",
+    "created" : 1460746175078.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2811171972",
+    "id" : "48556D37",
+    "lastKnownWriteTime" : 1461292608,
+    "last_content_update" : 1461292608635,
+    "path" : "~/Development/maps/events_leaflet/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

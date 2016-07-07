@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(rgdal)\nlibrary(RPostgreSQL)\nlibrary(dplyr)\n\n# read in shapefile for san francisco neighborhoods\nsf_plan <- readOGR(dsn = \"data/shapefiles/sf_planning\", layer = \"planning_neighborhoods\")\nsf_plan <- spTransform(sf_plan, CRS(\"+proj=longlat +datum=WGS84\"))\nsf_plan@data <- rename(sf_plan@data, neighborhood = neighborho)\n\n# connect to postgres to query event and artist data\ndriver <- dbDriver(\"PostgreSQL\")\nsongkick <- dbConnect(driver, dbname = \"songkick3\", host = \"localhost\", port = 5432, user = \"mark\")\n\n# read each sql query from .sql file\nall_sql <- paste(readLines(\"data/queries/all_events.sql\"), collapse = \"\\n\")\nmaster_sql <- paste(readLines(\"data/queries/neighbor_master.sql\"), collapse = \"\\n\")\ngenre_sql <- paste(readLines(\"data/queries/genre_top.sql\"), collapse = \"\\n\")\nterm_sql <- paste(readLines(\"data/queries/term_top.sql\"), collapse = \"\\n\")\nvenue_sql <- paste(readLines(\"data/queries/venues_coord.sql\"), collapse = \"\\n\")\n\n# query db with queries defined above, save to r df\nall_events <- dbGetQuery(songkick, all_sql)\nby_neighborhood <- dbGetQuery(songkick, master_sql)\ngenres <- dbGetQuery(songkick, genre_sql)\nterms <- dbGetQuery(songkick, term_sql)\nvenues <- dbGetQuery(songkick, venue_sql)\ndbDisconnect(songkick)\n\n# join spatial data from sf_plan with event data queried from songkick postgres db\nsf_plan@data <- left_join(sf_plan@data, by_neighborhood)\nsf_plan@data <- left_join(sf_plan@data, terms)\nsf_plan@data <- left_join(sf_plan@data, genres)\nsf_plan@data$neighborhood <- factor(sf_plan@data$neighborhood)\n\n# output prepared data for use in global.R --> server.R and ui.R\nsaveRDS(all_events, file = \"data/all_events.rds\")\nsaveRDS(sf_plan, file = \"data/master.rds\")\nsaveRDS(venues, file = \"data/venues.rds\")",
+    "created" : 1463679161763.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "351435510",
+    "id" : "8FE7DD4",
+    "lastKnownWriteTime" : 1461205336,
+    "last_content_update" : 1461205336,
+    "path" : "~/Development/maps/events_leaflet/data.R",
+    "project_path" : "data.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
